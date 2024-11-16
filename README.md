@@ -79,15 +79,19 @@ The workflow will output any detected issues in the Actions logs. Look for the "
 
 # Customization
 - **Commit Message Length**:
+  
   Adjust the minimum length for valid commit messages by modifying the condition in `check_commit_history`.
 
 - **Branch Threshold**:
+  
   Change the threshold for the number of branches in `check_branch_structure`.
 
 - **Documentation Files**:
+  
   Add or remove file names in the `doc_files` list in `check_documentation`.
 
 - **Update Threshold**:
+  
   Modify the `180` days threshold in `check_documentation` to suit your requirements.
 
 # How It Works
