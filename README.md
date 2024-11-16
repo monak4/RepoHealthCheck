@@ -4,15 +4,19 @@ This workflow automatically runs a health check on the repository, analyzing com
 # How to use
 
 1. **Add the Workflow File**
+   
    Save the workflow files in the src folder to the repository `.github/workflows/health_check.yml`.
    
 2. **Add the Health Check Script**
+   
    And then add the health_check.py file to the root of your repository.
 
 3. **Commit and Push**
+   
    Commit both files to your repository and push them to the `main` branch.
 
 4. **Trigger the Workflow**
+   
    The workflow will automatically run whenever:
    - A new commit is pushed to the `main` branch.
    - A pull request is created or updated.
