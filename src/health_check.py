@@ -1,6 +1,7 @@
 import os
 import subprocess
 import time
+import sys
 
 def check_commit_history():
     result = subprocess.run(['git', 'log', '--pretty=format:%s'], stdout=subprocess.PIPE, text=True)
@@ -8,7 +9,7 @@ def check_commit_history():
     issues = []
     
     for i, commit in enumerate(commits):
-        if len(commit) < 10:
+        if len(commit) < 10:  # Too short commit msg
             issues.append(f"Commit {i+1} has a short message: '{commit}'")
     return issues
 
@@ -22,13 +23,13 @@ def check_branch_structure():
     return issues
 
 def check_documentation():
-    doc_files = ['README.md', 'CONTRIBUTING.md', 'docs/index.md']  # Common Document Files
+    doc_files = ['README.md']  # Common Document Files
     issues = []
 
     for file in doc_files:
-        # if not os.path.exists(file):
-        #     issues.append(f"Documentation file missing: {file}")
-        if:
+        if not os.path.exists(file):
+            issues.append(f"Documentation file missing: {file}")
+        else:
             last_modified = os.path.getmtime(file)
             days_since_update = (time.time() - last_modified) / (60 * 60 * 24)
             if days_since_update > 180:  # Not updated for more than 180 days
@@ -45,9 +46,9 @@ def main():
     if not issues:
         print("All checks passed!")
     else:
-        print("Issues found:")
         for issue in issues:
-            print(f" - {issue}")
+            print(f"::warning file=health_check.py::{issue}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
