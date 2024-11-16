@@ -97,7 +97,7 @@ The workflow will output any detected issues in the Actions logs. Look for the "
 # How It Works
 The script runs these checks sequentially and reports all detected issues. If no issues are found, it confirms that all checks have passed.
 
-**Example Output (All Checks Passed)*:
+**Example Output (All Checks Passed)**:
 ```
 Running health checks...
 All checks passed!
